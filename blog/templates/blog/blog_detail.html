@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% block content %} 
+{% load static %}
+
+<div class="blogs">
+    <h5>
+        <a href="{% url 'blog:index' %}">{{ title }}</a>
+        <hr>
+    </h5>
+    <div class = "blog">
+        <img src="{{blog.thumb.url}}" />
+        <h2>{{blog.title}}</h2>
+        <p>{{blog.body}}</p>
+        <p>{{blog.date}}</p>
+    </div>
+</div>
+
+
+<script src="../../../static/scripts/p5.js"></script>
+<script src="../../../static/scripts/p5.dom.js"></script>
+<script src="../../../static/scripts/p5.speech.js"></script>
+<script src="../../../static/scripts/p5.sound.js"></script>
+<script src="../../../static/scripts/sketch.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+{% endblock %}

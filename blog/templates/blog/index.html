@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="blogs">
+    <h5><a href="{% url 'blog:index' %}">{{ title }}</a></h5>
+    <hr>
+    {% for blog in blogs %}
+    <div class = "blog">
+        <h2><a href="{% url 'blog:detail' slug=blog.slug %}">{{blog.title}}</a></h2>
+        <p>{{blog.snippet}}</p>
+        <p>{{blog.date}}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+                                   
+              
+

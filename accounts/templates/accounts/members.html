@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="members" style="text-align:center">
+    <h5><a href="{% url 'accounts:members' %}">{{ title }}</a></h5>
+    <hr>
+    {% for member in members %}
+    <div class = "member">
+        <p>{{member.username}}</p>
+        <p>{{member.date_joined}}</p>
+        <hr style="border:2px solid black">
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

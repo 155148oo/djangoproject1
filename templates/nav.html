@@ -1,0 +1,50 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark mb-3 p-3 bg-dark text-white">
+
+    <a class="navbar-brand" href="#">
+        <img src="#" height="50" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">HOMEPAGE
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home:about' %}">ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog:index' %}">BLOG</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:members' %}">MEMBERS</a>
+            </li>
+        </ul>
+        <ul id="login" class="navbar-nav float-rigth">
+
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" style="margin:2px 10px">Log Out</button>
+                </form>
+                <!-- {% if name == None %}
+                <a class="nav-link" href="#">登入</a>
+                {% else %}
+                <a class="nav-link" href="#">登出</a>
+                {% endif %} -->
+            </li>
+            <li style="margin:2px 10px"><a href="{% url 'blog:create' %}">Create Article</a></li>
+        {% else %}
+            <li style="margin:2px 10px"><a href="{% url 'accounts:login' %}">Log In</a></li>
+            <li style="margin:2px 10px"><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+        {% endif %}
+        </ul>
+
+    </div>
+</nav>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block content %} 
+{% load static %}
+
+<div class="blogs">
+    <h5>
+        <a href="{% url 'blog:index' %}">{{ title }}</a>
+        <hr>
+    </h5>
+    <div class = "blog">
+        <h5>Create A Blog</h5>
+        <form class="site-form" action="{% url 'blog:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %} {{form}}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+</div>
+{% endblock %}
